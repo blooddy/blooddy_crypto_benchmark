@@ -3,6 +3,10 @@ bin/
 bin-debug/
 bin-release/
 
+# FlexUnit generated files
+src/FlexUnitApplication.as
+.FlexUnitSettings/*
+
 # Other files and folders
 .settings/
 
