@@ -1,3 +1,6 @@
 [submodule "AS3-Utilities"]
 	path = src-skyboy
 	url = https://github.com/skyboy/AS3-Utilities.git
+[submodule "as3corelib"]
+	path = src-as3corelib
+	url = https://github.com/mikechambers/as3corelib.git
