@@ -41,9 +41,11 @@ package by.blooddy.crypto.benchmark {
 		/**
 		 * Constructor
 		 */
-		public function TestSuite() {
+		public function TestSuite(repeat:uint=0) {
 
 			super();
+			
+			this._repeat = repeat;
 			
 			var info:Object = DescribeType.get( this, DescribeType.INCLUDE_METHODS | DescribeType.INCLUDE_TRAITS | DescribeType.INCLUDE_METADATA );
 			
@@ -72,7 +74,7 @@ package by.blooddy.crypto.benchmark {
 										description = value.value;
 										break;
 									case 'order':
-										order = value.value;
+										order = parseInt( value.value );
 										break;
 								}
 							}
@@ -89,7 +91,7 @@ package by.blooddy.crypto.benchmark {
 				}
 			}
 			
-			this._tests.push.apply( this._tests, tests.sortOn( 'order' ) );
+			this._tests.push.apply( this._tests, tests.sortOn( 'order', Array.NUMERIC ) );
 			
 		}
 
@@ -99,6 +101,11 @@ package by.blooddy.crypto.benchmark {
 		//
 		//--------------------------------------------------------------------------
 
+		/**
+		 * @private
+		 */
+		private var _repeat:uint;
+		
 		/**
 		 * @private
 		 */
@@ -139,7 +146,9 @@ package by.blooddy.crypto.benchmark {
 					var t:uint = getTimer();				
 					try {
 					
-						test.test();
+						for ( var i:int=0; i<=_repeat; ++i ) {
+							test.test();
+						}
 						
 					} catch ( e:Error ) {
 						
