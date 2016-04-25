@@ -4,3 +4,6 @@
 [submodule "as3corelib"]
 	path = src-as3corelib
 	url = https://github.com/mikechambers/as3corelib.git
+[submodule "actionjson"]
+	path = src-actionjson
+	url = https://github.com/mherkender/actionjson.git
