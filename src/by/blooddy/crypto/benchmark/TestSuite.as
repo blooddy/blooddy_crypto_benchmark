@@ -139,6 +139,8 @@ package by.blooddy.crypto.benchmark {
 
 		public function run():void {
 			
+			this._results.splice( 0, this._tests.length );
+			
 			var tests:Vector.<TestCase> = this._tests.slice();
 			
 			( function():void {
