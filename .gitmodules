@@ -1,3 +1,6 @@
 [submodule "as3corelib"]
 	path = lib/as3corelib
 	url = https://github.com/mikechambers/as3corelib.git
+[submodule "flex-sdk"]
+	path = lib/flex-sdk
+	url = https://apache.googlesource.com/flex-sdk
