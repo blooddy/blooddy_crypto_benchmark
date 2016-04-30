@@ -8,15 +8,20 @@ package by.blooddy.crypto.benchmark {
 
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.utils.getQualifiedClassName;
 	import flash.utils.getTimer;
 	import flash.utils.setTimeout;
 	
 	import avmplus.DescribeType;
-	import avmplus.getQualifiedClassName;
 
 	//--------------------------------------
 	//  Events
 	//--------------------------------------
+	
+	/**
+	 * @eventType			flash.events.Event.CHANGE
+	 */
+	[Event( name="change", type="flash.events.Event" )]
 	
 	/**
 	 * @eventType			flash.events.Event.COMPLETE
@@ -162,6 +167,8 @@ package by.blooddy.crypto.benchmark {
 					
 					setTimeout( arguments.callee, 1 );
 
+					dispatchEvent( new Event( Event.CHANGE ) );
+					
 				} else {
 					
 					dispatchEvent( new Event( Event.COMPLETE ) );
