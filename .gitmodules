@@ -1,9 +1,3 @@
-[submodule "AS3-Utilities"]
-	path = lib/skyboy
-	url = https://github.com/skyboy/AS3-Utilities.git
 [submodule "as3corelib"]
 	path = lib/as3corelib
 	url = https://github.com/mikechambers/as3corelib.git
-[submodule "actionjson"]
-	path = lib/actionjson
-	url = https://github.com/mherkender/actionjson.git
