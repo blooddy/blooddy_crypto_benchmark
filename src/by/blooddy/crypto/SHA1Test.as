@@ -32,12 +32,12 @@ package by.blooddy.crypto {
 		//
 		//--------------------------------------------------------------------------
 		
-		[Test( description="by.blooddy.crypto.SHA1.hashBytes", order=1 )]
+		[Test( description="by.blooddy.crypto.SHA1", order=1 )]
 		public function bloddy_crypto_sha1():void {
 			by.blooddy.crypto.SHA1.hashBytes( _BIN );
 		}
 		
-		[Test( description="com.adobe.crypto.SHA1.hashBytes", order=2 )]
+		[Test( description="com.adobe.crypto.SHA1", order=2 )]
 		public function as3corelib_sha1():void {
 			com.adobe.crypto.SHA1.hashBytes( _BIN );
 		}

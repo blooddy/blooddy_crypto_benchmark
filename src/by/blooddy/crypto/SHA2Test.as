@@ -35,27 +35,27 @@ package by.blooddy.crypto {
 		//
 		//--------------------------------------------------------------------------
 		
-		[Test( description="by.blooddy.crypto.SHA224.hashBytes", order=1 )]
+		[Test( description="by.blooddy.crypto.SHA224", order=1 )]
 		public function bloddy_crypto_sha224():void {
 			by.blooddy.crypto.SHA224.hashBytes( _BIN );
 		}
 		
-		[Test( description="com.adobe.crypto.SHA224.hashBytes", order=2 )]
+		[Test( description="com.adobe.crypto.SHA224", order=2 )]
 		public function as3corelib_sha224():void {
 			com.adobe.crypto.SHA224.hashBytes( _BIN );
 		}
 
-		[Test( description="by.blooddy.crypto.SHA256.hashBytes", order=11 )]
+		[Test( description="by.blooddy.crypto.SHA256", order=11 )]
 		public function bloddy_crypto_sha256():void {
 			by.blooddy.crypto.SHA256.hashBytes( _BIN );
 		}
 		
-		[Test( description="com.adobe.crypto.SHA256.hashBytes", order=12 )]
+		[Test( description="com.adobe.crypto.SHA256", order=12 )]
 		public function as3corelib_sha256():void {
 			com.adobe.crypto.SHA256.hashBytes( _BIN );
 		}
 		
-		[Test( description="mx.utils.SHA256.computeDigest", order=13 )]
+		[Test( description="mx.utils.SHA256", order=13 )]
 		public function flex_sdk_sha256():void {
 			mx.utils.SHA256.computeDigest( _BIN );
 		}

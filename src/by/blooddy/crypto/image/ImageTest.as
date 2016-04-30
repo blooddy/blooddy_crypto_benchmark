@@ -4,44 +4,46 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package by.blooddy.crypto {
-
-	import com.adobe.crypto.MD5;
+package by.blooddy.crypto.image {
+	
+	import flash.display.BitmapData;
+	
+	import by.blooddy.crypto.benchmark.TestSuite;
 	
 	/**
 	 * @author					BlooDHounD
 	 * @version					1.0
 	 * @playerversion			Flash 10
 	 * @langversion				3.0
+	 * @created					13.10.2010 2:38:08
 	 */
-	public class MD5Test extends BinaryTest {
-
+	public class ImageTest extends TestSuite {
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Class variables
+		//
+		//--------------------------------------------------------------------------
+		
+		protected static const _IMAGE:BitmapData = new BitmapData( 512, 512, false, 0xFFFFFF );
+		_IMAGE.perlinNoise( 51, 51, 16, 0, false, true, 7 );
+		
+		protected static const _IMAGE_TRANS:BitmapData = new BitmapData( 512, 512, true, 0xFFFFFFFF );
+		_IMAGE_TRANS.perlinNoise( 51, 51, 16, 0, false, true, 15 );
+		
 		//--------------------------------------------------------------------------
 		//
 		//  Constructor
 		//
 		//--------------------------------------------------------------------------
 		
-		public function MD5Test() {
+		/**
+		 * Constructor
+		 */
+		public function ImageTest() {
 			super();
 		}
-
-		//--------------------------------------------------------------------------
-		//
-		//  Tests
-		//
-		//--------------------------------------------------------------------------
 		
-		[Test( description="by.blooddy.crypto.MD5", order=1 )]
-		public function bloddy_crypto_md5():void {
-			by.blooddy.crypto.MD5.hashBytes( _BIN );
-		}
-		
-		[Test( description="com.adobe.crypto.MD5", order=2 )]
-		public function as3corelib_md5():void {
-			com.adobe.crypto.MD5.hashBytes( _BIN );
-		}
-
 	}
-
+	
 }
