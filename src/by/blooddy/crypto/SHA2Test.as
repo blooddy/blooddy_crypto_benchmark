@@ -9,6 +9,8 @@ package by.blooddy.crypto {
 	import com.adobe.crypto.SHA224;
 	import com.adobe.crypto.SHA256;
 	
+	import mx.utils.SHA256;
+	
 	/**
 	 * @author					BlooDHounD
 	 * @version					1.0
@@ -51,6 +53,11 @@ package by.blooddy.crypto {
 		[Test( description="com.adobe.crypto.SHA256.hashBytes", order=12 )]
 		public function as3corelib_sha256():void {
 			com.adobe.crypto.SHA256.hashBytes( _BIN );
+		}
+		
+		[Test( description="mx.utils.SHA256.computeDigest", order=13 )]
+		public function flex_sdk_sha256():void {
+			mx.utils.SHA256.computeDigest( _BIN );
 		}
 		
 	}
