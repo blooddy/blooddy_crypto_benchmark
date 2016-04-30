@@ -40,7 +40,7 @@ package by.blooddy.crypto.benchmark {
 		
 		public var description:String;
 		
-		public var time:uint;
+		public var time:Number;
 
 		public var error:Error;
 
@@ -60,7 +60,7 @@ package by.blooddy.crypto.benchmark {
 					(
 						this.error
 						?	this.error
-						:	this.time + ' ms'
+						:	( isFinite( this.time ) ? this.time + ' ms' : '*' )
 					);
 		}
 

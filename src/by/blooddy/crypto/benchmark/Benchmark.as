@@ -190,8 +190,11 @@ package by.blooddy.crypto.benchmark {
 		 * @private
 		 */
 		private function handler_link(event:TextEvent):void {
+
 			if ( this._busy ) return;
+
 			var test:TestSuite = this._hash_tests[ event.text ];
+
 			if ( test ) {
 				this._busy = true;
 				this._log.htmlText = '';
@@ -199,24 +202,37 @@ package by.blooddy.crypto.benchmark {
 				test.addEventListener( Event.CHANGE, this.handler_progress );
 				test.run();
 			}
+
+			this._log.htmlText = this.getString( test );
+			this._log.setTextFormat( _FORMAT );
+			this._log.scrollV = this._log.maxScrollV;
+
 		}
 		
 		/**
 		 * @private
 		 */
 		private function handler_complete(event:Event):void {
-			this._log.htmlText += '\n\ncomplete';
+			this._busy = false;
+			this._log.htmlText = this.getString( event.target as TestSuite ) + '\n\ncomplete';
 			this._log.setTextFormat( _FORMAT );
 			this._log.scrollV = this._log.maxScrollV;
-			this._busy = false;
 		}
 		
 		/**
 		 * @private
 		 */
 		private function handler_progress(event:Event):void {
-			var test:TestSuite = event.target as TestSuite;
-			var text:String = '';
+			this._log.htmlText = this.getString( event.target as TestSuite );
+			this._log.setTextFormat( _FORMAT );
+			this._log.scrollV = this._log.maxScrollV;
+		}
+		
+		/**
+		 * @private
+		 */
+		private function getString(test:TestSuite):String {
+			var result:String = '';
 			var s:String = '';
 			const l:uint = 50;
 			for each ( var r:TestResult in test.results ) {
@@ -227,11 +243,9 @@ package by.blooddy.crypto.benchmark {
 					s += ':';
 					while ( s.length < l ) s += ' ';
 				}
-				text += ( text.length == 0 ? '' : '\n' ) + s + ' ' + ( r.error ? r.error : r.time );
+				result += ( result.length == 0 ? '' : '\n' ) + s + ' ' + ( r.error ? r.error : ( isFinite( r.time ) ? r.time : '-' ) );
 			}
-			this._log.htmlText = text;
-			this._log.setTextFormat( _FORMAT );
-			this._log.scrollV = this._log.maxScrollV;
+			return result;
 		}
 		
 	}

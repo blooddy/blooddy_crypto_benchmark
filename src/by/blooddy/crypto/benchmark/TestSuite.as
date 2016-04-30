@@ -46,11 +46,9 @@ package by.blooddy.crypto.benchmark {
 		/**
 		 * Constructor
 		 */
-		public function TestSuite(repeat:uint=0) {
+		public function TestSuite() {
 
 			super();
-			
-			this._repeat = repeat;
 			
 			var info:Object = DescribeType.get( this, DescribeType.INCLUDE_METHODS | DescribeType.INCLUDE_TRAITS | DescribeType.INCLUDE_METADATA );
 			
@@ -63,7 +61,8 @@ package by.blooddy.crypto.benchmark {
 			var description:String;
 			var order:Number;
 			
-			var tests:Array = new Array();
+			var arr:Array = new Array();
+			var results:Array = new Array();
 			
 			for each ( method in info.traits.methods ) {
 				if ( method.declaredBy != ns ) {
@@ -84,7 +83,7 @@ package by.blooddy.crypto.benchmark {
 								}
 							}
 
-							tests.push( new TestCase(
+							arr.push( new TestCase(
 								this[ method.name ],
 								method.name,
 								description,
@@ -96,7 +95,11 @@ package by.blooddy.crypto.benchmark {
 				}
 			}
 			
-			this._tests.push.apply( this._tests, tests.sortOn( 'order', Array.NUMERIC ) );
+			this._tests.push.apply( this._tests, arr.sortOn( 'order', Array.NUMERIC ) );
+
+			for each ( var test:TestCase in this._tests ) {
+				this._results.push( new TestResult( test.name, test.description ) );
+			}
 			
 		}
 
@@ -106,11 +109,6 @@ package by.blooddy.crypto.benchmark {
 		//
 		//--------------------------------------------------------------------------
 
-		/**
-		 * @private
-		 */
-		private var _repeat:uint;
-		
 		/**
 		 * @private
 		 */
@@ -139,23 +137,26 @@ package by.blooddy.crypto.benchmark {
 
 		public function run():void {
 			
-			this._results.splice( 0, this._tests.length );
+			var i:int = 0;
+			var l:int = this._tests.length;
 			
-			var tests:Vector.<TestCase> = this._tests.slice();
+			for each ( var result:TestResult in this._results ) {
+				result.time = Number.NaN;
+				result.error = null;
+			}
 			
-			( function():void {
+			setTimeout( function():void {
 				
-				if ( tests.length > 0 ) {
+				if ( i < l ) {
 					
-					var test:TestCase = tests.shift();
-					var result:TestResult = new TestResult( test.name, test.description );
+					var test:TestCase = _tests[ i ];
+					var result:TestResult = _results[ i ];
 		
-					var t:uint = getTimer();				
+					var t:uint = getTimer();
+
 					try {
 					
-						for ( var i:int=0; i<=_repeat; ++i ) {
-							test.test();
-						}
+						test.test();
 						
 					} catch ( e:Error ) {
 						
@@ -165,11 +166,11 @@ package by.blooddy.crypto.benchmark {
 					
 					result.time = getTimer() - t;
 					
-					_results.push( result );
+					dispatchEvent( new Event( Event.CHANGE ) );
+
+					++i;
 					
 					setTimeout( arguments.callee, 1 );
-
-					dispatchEvent( new Event( Event.CHANGE ) );
 					
 				} else {
 					
@@ -177,7 +178,7 @@ package by.blooddy.crypto.benchmark {
 					
 				}
 					
-			}() );
+			}, 1 );
 			
 		}
 
