@@ -6,7 +6,7 @@
 
 package by.blooddy.crypto {
 
-	import com.adobe.crypto.MD5;
+	import com.adobe.crypto.SHA1;
 	
 	/**
 	 * @author					BlooDHounD
@@ -14,7 +14,7 @@ package by.blooddy.crypto {
 	 * @playerversion			Flash 10
 	 * @langversion				3.0
 	 */
-	public class MD5Test extends BinaryTest {
+	public class SHA1Test extends BinaryTest {
 
 		//--------------------------------------------------------------------------
 		//
@@ -22,7 +22,7 @@ package by.blooddy.crypto {
 		//
 		//--------------------------------------------------------------------------
 		
-		public function MD5Test() {
+		public function SHA1Test() {
 			super();
 		}
 
@@ -32,14 +32,14 @@ package by.blooddy.crypto {
 		//
 		//--------------------------------------------------------------------------
 		
-		[Test( description="by.blooddy.crypto.MD5.hashBytes", order=1 )]
-		public function bloddy_crypto_md5():void {
-			by.blooddy.crypto.MD5.hashBytes( _BIN );
+		[Test( description="by.blooddy.crypto.SHA1.hashBytes", order=1 )]
+		public function bloddy_crypto_sha1():void {
+			by.blooddy.crypto.SHA1.hashBytes( _BIN );
 		}
 		
-		[Test( description="com.adobe.crypto.MD5.hashBytes", order=2 )]
-		public function as3corelib_md5():void {
-			com.adobe.crypto.MD5.hashBytes( _BIN );
+		[Test( description="com.adobe.crypto.SHA1.hashBytes", order=2 )]
+		public function as3corelib_sha1():void {
+			com.adobe.crypto.SHA1.hashBytes( _BIN );
 		}
 
 	}
