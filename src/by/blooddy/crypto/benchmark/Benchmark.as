@@ -29,7 +29,6 @@ package by.blooddy.crypto.benchmark {
 	import by.blooddy.crypto.image.PNGEncoderTest;
 	import by.blooddy.crypto.serialization.JSONTest;
 	
-	[SWF( width="430", height="280", frameRate="60", backgroundColor="#373737" )]
 	/**
 	 * @author					BlooDHounD
 	 * @version					1.0
@@ -73,8 +72,11 @@ package by.blooddy.crypto.benchmark {
 		 * Constructor
 		 */
 		public function Benchmark() {
-
 			super();
+			super.addEventListener( Event.ADDED_TO_STAGE, this.handler_addedToStage );
+		}
+		
+		private function handler_addedToStage(event:Event):void {
 
 			this._menu.x = 10;
 			this._menu.y = ( this._copy ? this._copy.y + 30 : 10 );
