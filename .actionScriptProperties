@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <actionScriptProperties analytics="false" mainApplicationPath="by/blooddy/crypto/benchmark/BenchmarkLoader.as" projectUUID="1bf62b91-e4c8-4fe2-a0d6-d09fc09adfaa" version="11">
-  <compiler additionalCompilerArguments="-locale en_US&#13;&#10;-load-config+=../lib/flex-sdk/frameworks/projects/framework/framework-config.xml&#13;&#10;-frame=2,by.blooddy.crypto.benchmark.Benchmark" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="false" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="11.4.0" useApolloConfig="false" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="true">
+  <compiler additionalCompilerArguments="-locale en_US&#13;&#10;-load-config+=../lib/flex-sdk/frameworks/projects/framework/framework-config.xml&#13;&#10;-load-config+=../lib/blooddy_crypto/build.config.xml&#13;&#10;-load-config+=../lib/blooddy_crypto/build.config.worker.xml&#13;&#10;-keep-as3-metadata+=Test&#13;&#10;-compress=true&#13;&#10;-frame=2,by.blooddy.crypto.benchmark.Benchmark" advancedTelemetry="false" autoRSLOrdering="true" copyDependentFiles="false" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="11.4.0" useApolloConfig="false" useDebugRSLSwfs="true" useFlashSDK="true" verifyDigests="true" warn="false">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="lib/as3corelib/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="lib/flex-sdk/frameworks/projects/framework/src/"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="lib/blooddy_crypto/src"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
@@ -33,7 +34,6 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="lib"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

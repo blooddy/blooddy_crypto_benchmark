@@ -4,3 +4,6 @@
 [submodule "flex-sdk"]
 	path = lib/flex-sdk
 	url = https://github.com/apache/flex-sdk
+[submodule "blooddy_crypto"]
+	path = lib/blooddy_crypto
+	url = https://github.com/blooddy/blooddy_crypto.git
