@@ -9,6 +9,8 @@ package by.blooddy.crypto {
 	import com.adobe.crypto.SHA224;
 	import com.adobe.crypto.SHA256;
 	
+	import flash.utils.ByteArray;
+	
 	import mx.utils.SHA256;
 	
 	/**
@@ -27,6 +29,12 @@ package by.blooddy.crypto {
 		
 		public function SHA2Test() {
 			super();
+			var bin:ByteArray = new ByteArray();
+			by.blooddy.crypto.SHA224.hashBytes( bin );
+			com.adobe.crypto.SHA224.hashBytes( bin );
+			by.blooddy.crypto.SHA256.hashBytes( bin );
+			com.adobe.crypto.SHA256.hashBytes( bin );
+			mx.utils.SHA256.computeDigest( bin );
 		}
 
 		//--------------------------------------------------------------------------
