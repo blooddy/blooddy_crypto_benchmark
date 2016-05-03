@@ -6,8 +6,12 @@
 
 package by.blooddy.crypto.image {
 	
+	import com.adobe.images.JPGEncoder;
 	import com.adobe.images.PNGEncoder;
 	
+	import flash.display.BitmapData;
+	
+	import mx.graphics.codec.JPEGEncoder;
 	import mx.graphics.codec.PNGEncoder;
 	
 	/**
@@ -30,6 +34,10 @@ package by.blooddy.crypto.image {
 		 */
 		public function PNGEncoderTest() {
 			super();
+			var bmp:BitmapData = new BitmapData( 100, 100 );
+			by.blooddy.crypto.image.PNGEncoder.encode( bmp, 1 );
+			com.adobe.images.PNGEncoder.encode( bmp );
+			( new mx.graphics.codec.PNGEncoder() ).encode( bmp );
 		}
 
 		//--------------------------------------------------------------------------
